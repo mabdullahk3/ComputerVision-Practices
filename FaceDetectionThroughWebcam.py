@@ -7,7 +7,7 @@ while True:
   ret,frame = video_capture.read()
   # convert to grayscale
   frame_gray = cv2.cvtColor(frame,cv2.COLOR_RGB2GRAY)
-  detections = face_detector.detectMultiScale(frame_gray)
+  detections = face_detector.detectMultiScale(frame_gray,minSize=(150,150))
   #construct rectangle
   for(x,y,w,h) in detections:
     cv2.rectangle(frame,(x,y),(x+w,y+h),(0,255,0),2)
